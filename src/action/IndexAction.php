@@ -8,7 +8,6 @@
 		}
 
 		protected function executeAction() {
-			// que la logique spécifique à index.php
 			return [];
 		}
 	}

@@ -26,13 +26,13 @@
 			}
 
 			if ($_SESSION["visibility"] < $this->pageVisibility) {
-				header("location:login.php");
+				header("location:index.php");
 				exit;
 			}
 
 			$data = $this->executeAction();
 			$data["isLoggedIn"] = $_SESSION["visibility"] > CommonAction::$VISIBILITY_PUBLIC;
-			$data["username"] = $_SESSION["username"] ?? "Invité";
+			$data["username"] = $_SESSION["username"] ?? "nouveau joueur";
 
 			return $data;
 		}

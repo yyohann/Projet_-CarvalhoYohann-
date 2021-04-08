@@ -3,7 +3,7 @@
 	require_once("action/DAO/UserDAO.php");
 
 	class LoginAction extends CommonAction {
-		// phpc / phpx
+	
 
 		public function __construct() {
 			parent::__construct(CommonAction::$VISIBILITY_PUBLIC);
@@ -13,6 +13,7 @@
 			$hasConnectionError = false;
 
 			if (isset($_POST["username"])) {
+				
 				$user = UserDAO::authenticate($_POST["username"], $_POST["pwd"]);
 
 				if (!empty($user)) {
