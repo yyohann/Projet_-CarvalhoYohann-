@@ -2,13 +2,26 @@ class player{
 
     constructor(hp, mana, shield){
         this.hp = hp;
-        this.mana = mana;
+        this.maxMana = mana;
+        this.mana = this.maxMana;
         this.shield = shield;
     }
 
-    attack(card, enemy) {
+    attackPlayer(card, enemy) {
         if(card.mana <= this.mana){
-            enemy.hp -= card.damage;
+            for (let i = 1; i <= card.damage; i++) {
+
+                if (enemy.shield <= 0) {
+                    enemy.hp --;
+                }
+                else{
+                    enemy.shield --;
+                }
+               
+            }
+            this.mana -=card.mana;   
+            return true;
         }
+        return false;
     }
 }
