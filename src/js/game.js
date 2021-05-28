@@ -15,6 +15,7 @@ window.addEventListener("load", () => {
     
     createCardList();
     initiateGame();
+    displayCards(cardsHand);
 
     enemies.push(new enemy(5,0,2));
     enemies.push(new enemy(5,1,2));
@@ -36,6 +37,7 @@ const drawCard = () => {
         var rand = Math.floor(Math.random() * cardList.length);
         var randomCard = cardList.find(x => x.id === rand);
         cardsHand.push(randomCard); 
+        displayCards(cardsHand);
     }
 }
 
@@ -64,20 +66,26 @@ const newLevel = () => {
 }
 
 const state = () => {
-    displayCards(cardsHand);
-    drawPlayer();
-    drawEnemy(enemies);
-    document.getElementById("playerHealth").innerText = joueur.hp;
-    document.getElementById("playerMana").innerText = joueur.mana;
-    for (let i = 0; i < enemies.length; i++) {
-        if (enemies[i].hp <= 0) {
-            enemies.shift();
+    if(joueur.hp <= 0){
+        isDead();
+    }
+    else{
+        
+        drawPlayer();
+        drawEnemy(enemies);
+        document.getElementById("playerHealth").innerText = joueur.hp;
+        document.getElementById("playerMana").innerText = joueur.mana;
+        for (let i = 0; i < enemies.length; i++) {
+            if (enemies[i].hp <= 0) {
+                enemies.shift();
+            }
         }
+        if (enemies.length === 0) {
+            newLevel();
+        }
+        setTimeout(state, 1000);
     }
-    if (enemies.length === 0) {
-        newLevel();
-    }
-    setTimeout(state, 1000);
+  
 }
 
 const cardClick = (uid) => {
@@ -121,6 +129,7 @@ const drawEnemy = (enemy) => {
                 var removeIndex = cardsHand.map(function(item) { return item.id; }).indexOf(cardSelected.id);
                 cardsHand.splice(removeIndex,1);
                 cardSelected = undefined;
+                displayCards(cardsHand);
             }
         }
     }
@@ -136,6 +145,29 @@ const endTurn = () => {
         enemies[i].attackEnemy(joueur);
     }    
     drawCard();
+}
+
+const isDead = () => {
+    let div = document.createElement("div");
+    div.className = "death";
+    console.log('dead');
+    document.querySelector("html").append(div);
+    let img = document.createElement("img");
+    img.src = "../sprites/Dead_Adventurer.jpg";
+    img.style.width = "450px"
+    img.style.height = "250px"
+    document.querySelector(".death").append(img);
+    let txt = document.createElement("span");
+    txt.className = "deathMessage";
+    txt.innerText = "Un autre aventurier vous a trouvé inconscient allongé au sol."+
+    "\n Vous allez être ramené en lieu sur.";
+    document.querySelector(".death").append(txt);
+    let btn = document.createElement("button");
+    btn.innerText = "D'accord";
+    btn.onclick = () => {
+        location.href = "home.php";
+    }
+    document.querySelector(".death").append(btn);
 }
 
 const createCardList = () => {
