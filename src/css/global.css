@@ -4,33 +4,53 @@
 }
 
 html {
-	background-color: #333;
+	background-image: url("../sprites/backgroundSlay.jpg");
+	height:100%;
 }
 
 body {
 	font-family:Verdana;
+	height: 100%;
+}
 
+button{
+	text-decoration: none;
+    color: white;
+    background-color: rgb(44,76,78);
+    padding: 5px;
+    border: 1px solid #c1ecf1cc;
+    box-shadow: 2px 2px #c1b957;
+	margin-bottom: 2%;
+}
+
+button:hover{
+	background-color: rgb(55, 20, 90);
 }
 
 h1 {
-	font-size: 1.3em;
-	text-shadow:2px 2px 5px #aaa;
-	margin-bottom: 25px;
+    font-size: 1.6em;
+    text-shadow: 2px 2px 5px #aaa;
+    margin-bottom: 25px;
 }
 
 p {
 	margin-top:10px;
 	margin-bottom:10px;
+	color: white;
 }
 
 a {
-	text-decoration:none;
-
-	color:white;
+	text-decoration: none;
+    color: white;
+    background-color: rgb(44,76,78);
+    padding: 5px;
+    border: 1px solid #c1ecf1cc;
+    box-shadow: 2px 2px #c1b957;
 }
 
 a:hover {
 	text-decoration:underline;
+	background-color: rgb(55, 20, 90);
 }
 
 .clear {
@@ -38,13 +58,17 @@ a:hover {
 }
 
 .container {
-	background-color:white;
-	width:930px;
-	min-height:350px;
-	margin:5px auto;
-	padding:15px;
-	box-shadow: 0 0 15px #000;
-	border-radius: 3px;
+	font-family: Verdana;
+    background-color: rgb(143 60 48 / 75%);
+    width: 730px;
+    min-height: 350px;
+    padding: 15px;
+    box-shadow: 0 0 15px #000;
+    border-radius: 3px;
+    margin: auto;
+    position: relative;
+    top: 20%;
+    text-align: center;
 }
 
 .header {
@@ -77,4 +101,9 @@ a:hover {
 
 .error-div{
 	color: red;
+}
+
+#note{
+	margin-top: 10%;
+	font-size: 0.8em;
 }

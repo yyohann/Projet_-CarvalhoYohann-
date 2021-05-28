@@ -12,13 +12,13 @@ const MaxCard = 8;
 
 window.addEventListener("load", () => {
     ctx = document.getElementById("canvas").getContext("2d");
-    spriteList.push(new Slash());
+    
     createCardList();
     initiateGame();
 
     enemies.push(new enemy(5,0,2));
     enemies.push(new enemy(5,1,2));
-    joueur = new player(30,5,10);
+    joueur = new player(70,5,10);
     
     setTimeout(state, 1000);
 });
@@ -116,6 +116,7 @@ const drawEnemy = (enemy) => {
                 var sucess = joueur.attackPlayer(cardSelected, enemies[i]);	
             }    
             if (sucess === true) {
+                spriteList.push(new Slash());
                 tick();
                 var removeIndex = cardsHand.map(function(item) { return item.id; }).indexOf(cardSelected.id);
                 cardsHand.splice(removeIndex,1);
