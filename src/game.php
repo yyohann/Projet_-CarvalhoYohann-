@@ -26,10 +26,13 @@
     </div>
     <div id = "container"></div>
     <template id="card-template">	
-			<div class='dmgCard'></div>
-			<div class='manaCard'></div>
-            <div class='target'></div>
-			<h2></h2>
+            <div class='image'></div>
+            <h2></h2>
+            <div class="stats">
+                <div class='dmgCard'></div>
+                <div class='manaCard'></div> 
+            </div> 
+			
 	</template>
     <div id="end-turn">
         <button class="end_turn" onclick='endTurn()'></button>

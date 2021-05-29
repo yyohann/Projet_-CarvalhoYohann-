@@ -6,7 +6,7 @@ class Slash {
 		let refreshDelay = 100;
 		let loopColumn = true;
 		let scale = 0.9;
-		this.tiledImage = new TiledImage("../../sprites/slash.png", columnCount, rowCount,refreshDelay, loopColumn, scale, null);
+		this.tiledImage = new TiledImage("../../sprites/slashAnimation.png", columnCount, rowCount,refreshDelay, loopColumn, scale, null);
 
 		this.tiledImage.changeRow(0);
 		this.tiledImage.changeMinMaxInterval(0,6);

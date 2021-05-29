@@ -10,6 +10,9 @@ class player{
     attackPlayer(card, enemy) {
         if(card.mana <= this.mana){
             for (let i = 1; i <= card.damage; i++) {
+                if (enemy.hp <= 0) {
+                    return;
+                }
 
                 if (enemy.shield <= 0) {
                     enemy.hp --;

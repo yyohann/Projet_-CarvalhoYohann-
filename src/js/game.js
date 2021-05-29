@@ -66,13 +66,12 @@ const newLevel = () => {
 }
 
 const state = () => {
+    console.log(enemies)
     if(joueur.hp <= 0){
         isDead();
     }
     else{
         
-        drawPlayer();
-        drawEnemy(enemies);
         document.getElementById("playerHealth").innerText = joueur.hp;
         document.getElementById("playerMana").innerText = joueur.mana;
         for (let i = 0; i < enemies.length; i++) {
@@ -83,6 +82,9 @@ const state = () => {
         if (enemies.length === 0) {
             newLevel();
         }
+        
+        drawPlayer();
+        drawEnemy(enemies);
         setTimeout(state, 1000);
     }
   
@@ -144,7 +146,10 @@ const endTurn = () => {
     for(let i = 0; i < enemies.length; i++){
         enemies[i].attackEnemy(joueur);
     }    
-    drawCard();
+    for (let j = 0; j < 2; j++) {
+        drawCard(); 
+    }
+   
 }
 
 const isDead = () => {
