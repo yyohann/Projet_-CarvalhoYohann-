@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+	require_once("action/gameAction.php");
+
+	$action = new gameAction();
+	$data = $action->execute();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,8 +28,6 @@
     </div>
     <div id = "game-board">
         <div id="player"></div>
-       
-        <!--<img src="sprites/Worm.png" alt="enemy" id="enemy">-->
     </div>
     <div id = "container"></div>
     <template id="card-template">	

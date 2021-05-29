@@ -62,14 +62,12 @@ const newLevel = () => {
     
     joueur.hp +=5;
     var rand = Math.ceil(Math.random() * 4);
-    console.log(rand);
     for (let i = 0; i < rand; i++) {
         enemies.push(new enemy(Math.ceil(Math.random() * 5),Math.floor(Math.random() * 5),Math.ceil(Math.random() * 3)));   
     }
 }
 
 const state = () => {
-    console.log(enemies)
     if(joueur.hp <= 0){
         isDead();
     }
@@ -158,7 +156,6 @@ const endTurn = () => {
 const isDead = () => {
     let div = document.createElement("div");
     div.className = "death";
-    console.log('dead');
     document.querySelector("html").append(div);
     let img = document.createElement("img");
     img.src = "../sprites/Dead_Adventurer.jpg";

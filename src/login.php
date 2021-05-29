@@ -1,5 +1,5 @@
 <?php
-	require_once("action/LoginAction.php");
+	require_once("action/loginAction.php");
 
 	$action = new LoginAction();
 	$data = $action->execute();

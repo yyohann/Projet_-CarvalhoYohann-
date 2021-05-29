@@ -3,7 +3,6 @@
 
 	$action = new IndexAction();
 	$data = $action->execute();
-	//echo(password_verify("test",'$2y$10$dPxMAPPpzzK5ARFRvoNf9.ClF/IJg6L6MzOFBuHRRKF1lTUtqTxzS'));
 	require_once("partial/header.php");
 ?>
 
