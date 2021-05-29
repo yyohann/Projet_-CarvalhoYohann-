@@ -1,15 +1,19 @@
-
-let cardsHand = [];
+let cardsHand = [];//list of every card in your hand
 let enemies = [];
 
 let cardSelected;
 
-let cardList = [];
-let spriteList = [];
-let ctx = null;
-let stage =1;
-const MaxCard = 8;
+let cardList = []; //list of every existing card
 
+
+let spriteList = [];//for canvas
+let ctx = null; //for canvas
+
+let stage =1; //how many room you've cleared so far
+
+const MaxCard = 8; //number of card you can have in your hand
+
+//sets the first game when you load the page and calls the state function
 window.addEventListener("load", () => {
     ctx = document.getElementById("canvas").getContext("2d");
     
@@ -25,6 +29,7 @@ window.addEventListener("load", () => {
     setTimeout(state, 1000);
 });
 
+//gets 4 random cards to start the game with
 const initiateGame = () => {
     for (let i = 0; i < 4; i++) {
         var rand = Math.floor(Math.random() * cardList.length);
@@ -33,6 +38,7 @@ const initiateGame = () => {
     }
 }
 
+//Function to randomly draw a card (used when you pass turn)
 const drawCard = () => {
     if (cardsHand.length <= MaxCard) {
         var rand = Math.floor(Math.random() * cardList.length);
@@ -42,6 +48,7 @@ const drawCard = () => {
     }
 }
 
+//function only used for the canvas
 const tick = () => {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.0)';
     ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
@@ -56,6 +63,7 @@ const tick = () => {
 	window.requestAnimationFrame(tick);
 }
 
+//Creates a new set of monsters when you successfully clear a room
 const newLevel = () => {
     stage++;
     document.getElementById("stage").innerText = stage;
@@ -67,12 +75,12 @@ const newLevel = () => {
     }
 }
 
+//function that gets the current state of the game every second and refresh it
 const state = () => {
     if(joueur.hp <= 0){
         isDead();
     }
     else{
-        
         document.getElementById("playerHealth").innerText = joueur.hp;
         document.getElementById("playerMana").innerText = joueur.mana;
         for (let i = 0; i < enemies.length; i++) {
@@ -83,19 +91,19 @@ const state = () => {
         if (enemies.length === 0) {
             newLevel();
         }
-        
         drawPlayer();
         drawEnemy(enemies);
         setTimeout(state, 1000);
     }
-  
 }
 
+//function used to figure out which card you select from your hand
 const cardClick = (uid) => {
     var card = cardsHand.find(x => x.id === uid)
     cardSelected = card;
 }
 
+//draws the player on the screen
 const drawPlayer = () => {
     document.getElementById("game-board").innerHTML = "";
     let div = document.createElement("div");
@@ -104,6 +112,7 @@ const drawPlayer = () => {
     document.getElementById("game-board").append(div);
 }
 
+//Draws every enemy and their stats on the screen
 const drawEnemy = (enemy) => {
     for (let i = 0; i < enemy.length; i++) {
         let div = document.createElement("div");
@@ -138,6 +147,7 @@ const drawEnemy = (enemy) => {
     }
 }
 
+//function used to pass your turn
 const endTurn = () => {
 
     if (joueur.mana <= 12) {
@@ -153,6 +163,7 @@ const endTurn = () => {
    
 }
 
+//When the player is dead 
 const isDead = () => {
     let div = document.createElement("div");
     div.className = "death";
@@ -175,6 +186,7 @@ const isDead = () => {
     document.querySelector(".death").append(btn);
 }
 
+//List of current existing cards (more to come)
 const createCardList = () => {
     //name,damage,mana(cost),uid,effect(optional)
     cardList.push(new cards("Mosquito bite",1,1,0));
