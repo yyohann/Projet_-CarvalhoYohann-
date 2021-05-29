@@ -119,10 +119,10 @@ html, body {
     position: absolute;
     left: 0;
     height: 10%;
-    width: 30%;
+    width: 100%;
 }
 #playerHealth{
-    flex: 1;
+    flex: 0.1;
     background-image: url("../sprites/heart.png"); 
     background-repeat: no-repeat;
     background-position: center;
@@ -138,10 +138,23 @@ html, body {
     justify-content: center;
 }
 #playerMana{
-    flex: 1;
+    flex: 0.1;
     background-image: url("../sprites/mana.png");
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
+    height: 70%;
+    font-size: 2em;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#stage{
+    margin-left: 0%;
+    flex: 1;
     background-position: center;
     height: 70%;
     font-size: 2em;

@@ -17,6 +17,7 @@
         <div class= "playerStats">
             <div id="playerMana"></div>
             <div id="playerHealth"></div>
+            <div id="stage"></div>
         </div>
     </div>
     <div id = "game-board">

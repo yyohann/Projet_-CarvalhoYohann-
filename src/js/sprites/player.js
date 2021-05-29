@@ -11,9 +11,8 @@ class player{
         if(card.mana <= this.mana){
             for (let i = 1; i <= card.damage; i++) {
                 if (enemy.hp <= 0) {
-                    return;
+                    return true;
                 }
-
                 if (enemy.shield <= 0) {
                     enemy.hp --;
                 }

@@ -7,7 +7,7 @@ let cardSelected;
 let cardList = [];
 let spriteList = [];
 let ctx = null;
-
+let stage =1;
 const MaxCard = 8;
 
 window.addEventListener("load", () => {
@@ -16,6 +16,7 @@ window.addEventListener("load", () => {
     createCardList();
     initiateGame();
     displayCards(cardsHand);
+    document.getElementById("stage").innerText = stage;
 
     enemies.push(new enemy(5,0,2));
     enemies.push(new enemy(5,1,2));
@@ -56,6 +57,8 @@ const tick = () => {
 }
 
 const newLevel = () => {
+    stage++;
+    document.getElementById("stage").innerText = stage;
     
     joueur.hp +=5;
     var rand = Math.ceil(Math.random() * 4);
@@ -76,7 +79,7 @@ const state = () => {
         document.getElementById("playerMana").innerText = joueur.mana;
         for (let i = 0; i < enemies.length; i++) {
             if (enemies[i].hp <= 0) {
-                enemies.shift();
+                enemies.splice(i,1);
             }
         }
         if (enemies.length === 0) {
