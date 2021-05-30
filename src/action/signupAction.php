@@ -22,13 +22,15 @@
 						return compact("hasConnectionError");
 					}
 				} 
-
 				if($_POST["pwd"] == $_POST["pwd2"]){
 
 		
 					$password = password_hash($_POST["pwd"], PASSWORD_BCRYPT);
-					UserDAO::createProfile($_POST["username"],$password);
-					echo("compte crée");
+					$a = UserDAO::createProfile($_POST["username"],$password);
+					if ($a == "ERREUR") {
+						echo("ERREUR : UN COMPTE POSSEDE DEJA CE NOM !");
+					}
+					
 
 
 				}

@@ -29,10 +29,15 @@
 
         public static function createProfile($username, $password){
             $connection = Connection::getConnection();
-
-            $statement = $connection->prepare("INSERT into users(username, password, visibility) VALUES (?,?,1)");
-            $statement->bindParam(1, $username);
-            $statement->bindParam(2, $password);
-            $statement->execute();
+            try {
+                $statement = $connection->prepare("INSERT into users(username, password, visibility) VALUES (?,?,1)");
+                $statement->bindParam(1, $username);
+                $statement->bindParam(2, $password);
+                $statement->setFetchMode(PDO::FETCH_ASSOC); 
+                $statement->execute();
+            } catch (\Throwable $th) {
+                return ("ERREUR");
+            }
+           
         }
     }
