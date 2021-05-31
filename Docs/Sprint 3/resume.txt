@@ -1,0 +1,13 @@
+Dans cette vidéo je fais un tour complet de mon site web, je montre comment y accéder.
+Ensuite, je montre les fonctionnalités disponibles dans la page d’accueil 
+(l’onglet se connecter et l’onglet pour créer un compte). 
+Par la suite, je fais une démonstration comme si un utilisateur venait se créer un compte. 
+Tout de suite après, je montre comment ce même utilisateur peut se connecter, 
+la connexion offre à l’utilisateur la possibilité d’accéder à une nouvelle page (home),
+cette page fait brièvement un tutoriel au joueur de comment jouer et comment se déroule une partie. 
+Ensuit, je montre comment se déconnecter et se reconnecter 
+et en même temps je monte que le compte doit êtres authentique.
+Ensuite, je vais faire une partie très rapide du jeu et explique 
+comment il fonctionne et quelles sont les informations affichées à l’écran.
+
+https://cvmqc-my.sharepoint.com/:v:/g/personal/e_ycarvalho_etu_cvm_qc_ca/EYy9_Ck_hZBDpvbUtelmq-4BPGPyYf-M4kGshTREPSpLIQ?e=8auMuw 
